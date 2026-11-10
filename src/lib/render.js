@@ -12,8 +12,8 @@ export async function loadSinhalaFont() {
   if (fontLoaded || !document.fonts) return;
   try {
     await Promise.all([
-      document.fonts.load(`600 24px ${SINHALA_FONT}`),
       document.fonts.load(`700 24px ${SINHALA_FONT}`),
+      document.fonts.load(`800 24px ${SINHALA_FONT}`),
     ]);
   } catch {
     /* fall back to system Sinhala fonts */
@@ -142,7 +142,7 @@ export function renderTranslatedCanvas(img, regions, translations) {
     let size = Math.max(9, Math.min(48, Math.floor(maxH)));
     let lines = null;
     for (; size >= 9; size--) {
-      ctx.font = `600 ${size}px ${SINHALA_FONT}`;
+      ctx.font = `700 ${size}px ${SINHALA_FONT}`;
       const candidate = wrapLines(ctx, text, maxW);
       const totalH = candidate.length * size * LINE_HEIGHT;
       const widest = Math.max(...candidate.map((l) => ctx.measureText(l).width));
@@ -153,7 +153,7 @@ export function renderTranslatedCanvas(img, regions, translations) {
     }
     if (!lines) {
       size = 9;
-      ctx.font = `600 9px ${SINHALA_FONT}`;
+      ctx.font = `700 9px ${SINHALA_FONT}`;
       lines = wrapLines(ctx, text, maxW);
     }
 
