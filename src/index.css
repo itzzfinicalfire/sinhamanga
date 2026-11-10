@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+/* Locally hosted Noto Sans Sinhala (variable font) so Sinhala typesetting
+   works offline and inside <canvas>. Falls back to system Sinhala fonts. */
+@font-face {
+  font-family: "Noto Sans Sinhala";
+  src: url("/fonts/NotoSansSinhala.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-display: "Baloo 2", "Noto Sans Sinhala", ui-rounded, "Segoe UI", system-ui, sans-serif;
+  --font-sinhala: "Noto Sans Sinhala", "Nirmala UI", "Iskoola Pota", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+}
+
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+/* Gradient headline text */
+.text-gradient {
+  background: linear-gradient(90deg, #4f46e5 10%, #db2777 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #4f46e5, #c026d3);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.75rem 1.6rem;
+  box-shadow: 0 10px 24px -10px rgba(79, 70, 229, 0.55);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+.btn-primary:hover:not(:disabled) {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+.btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 2px solid #e2e8f0;
+  background: #fff;
+  color: #334155;
+  font-weight: 700;
+  padding: 0.7rem 1.4rem;
+  transition: border-color 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+}
+.btn-secondary:hover:not(:disabled) {
+  border-color: #a5b4fc;
+  color: #4f46e5;
+}
+.btn-secondary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Floating animation for hero chips */
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.animate-floaty {
+  animation: floaty 5s ease-in-out infinite;
+}
+.animate-floaty-slow {
+  animation: floaty 7s ease-in-out infinite;
+}
+
+/* Checkerboard background for image previews */
+.checker {
+  background-color: #f1f5f9;
+  background-image:
+    linear-gradient(45deg, #e2e8f0 25%, transparent 25%),
+    linear-gradient(-45deg, #e2e8f0 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e2e8f0 75%),
+    linear-gradient(-45deg, transparent 75%, #e2e8f0 75%);
+  background-size: 16px 16px;
+  background-position:
+    0 0,
+    0 8px,
+    8px -8px,
+    -8px 0;
+}
+
+/* Clean <details> accordions */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
