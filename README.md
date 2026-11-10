@@ -1,5 +1,7 @@
 # SinhaManga — AI Manga Translator to Sinhala සිංහල
 
+**Built by [Finicalfire](https://github.com/itzzfinicalfire)**
+
 A free, no-signup web app that translates manga/comic pages into **Sinhala** — in the spirit of
 [manga-translator.ai](https://manga-translator.ai/), but focused on a single target language and
 powered by **your own DeepSeek API key**.
